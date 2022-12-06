@@ -4,6 +4,10 @@ import java.awt.image.BufferedImage;
 
 public class Entity {
 
+    // Set player's default position
+    // In java (0,0) starts at the top left corder of the screen, so
+    // x values increase as they go right
+    // y values increase as they go down
     public int x, y;
     public int speed;
 
