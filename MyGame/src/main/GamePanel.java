@@ -10,7 +10,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     //Screen settings, change as you like
     final int originalTileSize = 16; // 16 x 16 tile for characters
-    final int scale = 3;
+    public final int scale = 3;
 
     public final int tileSize = originalTileSize * scale; //Will look like 48 x 48 on screen
     public final int maxScreenCol = 16;
@@ -30,6 +30,8 @@ public class GamePanel extends JPanel implements Runnable{
     TileManager tileM;
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
+
+    public Collision cChecker;
     public Player player;
 
     public GamePanel() {
@@ -40,6 +42,7 @@ public class GamePanel extends JPanel implements Runnable{
         this.setFocusable(true);
         player = new Player(this, keyH);
         tileM = new TileManager(this);
+        cChecker = new Collision(this);
     }
 
     public void startGameThread() {
