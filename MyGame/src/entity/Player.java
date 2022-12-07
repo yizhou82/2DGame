@@ -23,7 +23,7 @@ public class Player extends Entity{
         screenX = gp.screenWidth / 2 - gp.tileSize / 2;
         screenY = gp.screenHeight / 2 - gp.tileSize / 2;
 
-        hitBox = new Rectangle(3 * gp.scale, 2 * gp.scale, 10 * gp.scale, 10 * gp.scale);
+        hitBox = new Rectangle(4 * gp.scale, 3 * gp.scale, 8 * gp.scale, 8 * gp.scale);
 
         setDefault();
         getPlayerImage();

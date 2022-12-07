@@ -78,6 +78,8 @@ public class TileManager {
             row++;
         }
 
+        System.out.println(mapTiles.toString());
+
         try {
             br.close();
         } catch (IOException e) {
