@@ -40,10 +40,11 @@ public class TileManager {
 
             tile[3] = new Tile();
             tile[3].image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("backgroundTiles/Void.png"));
+            tile[3].collision = true;
 
             tile[4] = new Tile();
             tile[4].image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("backgroundTiles/VoidEye.png"));
-
+            tile[4].collision = true;
 
         } catch(IOException e) {
             e.printStackTrace();
