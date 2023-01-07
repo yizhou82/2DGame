@@ -34,7 +34,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     public Collision cChecker;
     public Player player;
-    public SuperObject obj[] = new SuperObject[2];
+    public SuperObject obj[] = new SuperObject[8];
     public ObjectPlacer objPlacer = new ObjectPlacer(this);
 
     public GamePanel() {
