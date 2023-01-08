@@ -1,5 +1,6 @@
-package main;
+package object;
 
+import main.GamePanel;
 import object.Obj_chest;
 import object.Obj_key;
 import object.Obj_lock;
@@ -25,8 +26,8 @@ public class ObjectPlacer {
         gp.obj[2].worldY = 33 * gp.tileSize;
 
         gp.obj[3] = new Obj_lock();
-        gp.obj[3].worldX = 40 * gp.tileSize;
-        gp.obj[3].worldY = 37 * gp.tileSize;
+        gp.obj[3].worldX = 39 * gp.tileSize;
+        gp.obj[3].worldY = 39 * gp.tileSize;
 
         gp.obj[4] = new Obj_chest();
         gp.obj[4].worldX = 40 * gp.tileSize;

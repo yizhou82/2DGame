@@ -1,6 +1,7 @@
 package main;
 
 import entity.Player;
+import object.ObjectPlacer;
 import object.SuperObject;
 import tile.TileManager;
 
@@ -17,7 +18,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int maxScreenCol = 16;
     public final int maxScreenRow = 16;
     public final int screenWidth = tileSize * maxScreenCol; //768 pixels
-    public final int screenHeight = tileSize * maxScreenRow; //576 pixels
+    public final int screenHeight = tileSize * maxScreenRow; //768 pixels
 
     //WORLD SETTINGS
     public final int maxWorldCol = 50;
@@ -36,6 +37,7 @@ public class GamePanel extends JPanel implements Runnable{
     public Player player;
     public SuperObject obj[] = new SuperObject[8];
     public ObjectPlacer objPlacer = new ObjectPlacer(this);
+    public UI ui = new UI(this);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -57,41 +59,6 @@ public class GamePanel extends JPanel implements Runnable{
         gameThread = new Thread(this);
         gameThread.start();
     }
-
-
-//    Sleep GameLoop
-//    @Override
-//    public void run() {
-//
-//        double drawInterval = 1000000000/FPS; // 0.01666 sec
-//        double nextDrawTime = System.nanoTime() + drawInterval;
-//
-//        while(gameThread != null) {
-//
-//            // 1 Update: update info such as character position
-//            update();
-//            // 2 Draw: draw updated info on screen
-//            repaint();
-//
-//            try {
-//                double remainingTime = nextDrawTime - System.nanoTime();
-//                remainingTime /= 1000000;
-//
-//                if(remainingTime < 0) {
-//                    remainingTime = 0;
-//                }
-//
-//                Thread.sleep((long) remainingTime);
-//
-//                nextDrawTime += drawInterval;
-//
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
-//        }
-//
-//    }
-
 
     //Delta GameLoop
     @Override
@@ -118,7 +85,7 @@ public class GamePanel extends JPanel implements Runnable{
             }
 
             if(timer >= 1000000000) {
-                System.out.println("FPS:" + drawCount);
+                //System.out.println("FPS:" + drawCount);
                 drawCount = 0;
                 timer = 0;
             }
@@ -142,6 +109,7 @@ public class GamePanel extends JPanel implements Runnable{
         }
 
         player.draw(g2);
+        ui.draw(g2);
 
         g2.dispose();
     }

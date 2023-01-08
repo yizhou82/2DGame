@@ -8,7 +8,7 @@ public class Obj_chest extends SuperObject{
         this.name = "chest";
 
         try{
-            image1 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("objects/chest.png"));
+            image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("objects/chest.png"));
         } catch(IOException e) {
             e.printStackTrace();
         }

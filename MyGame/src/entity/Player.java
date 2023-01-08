@@ -16,6 +16,8 @@ public class Player extends Entity{
     public final int screenX;
     public final int screenY;
 
+    public boolean keyNum = false;
+
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
         this.keyH = keyH;
@@ -24,6 +26,9 @@ public class Player extends Entity{
         screenY = gp.screenHeight / 2 - gp.tileSize / 2;
 
         hitBox = new Rectangle(4 * gp.scale, 3 * gp.scale, 8 * gp.scale, 8 * gp.scale);
+
+        initialAreaX = 4;
+        initialAreaY = 3;
 
         setDefault();
         getPlayerImage();
@@ -77,7 +82,15 @@ public class Player extends Entity{
         collisionOn = false;
         gp.cChecker.checkTile(this);
 
+        int objIndex = gp.cChecker.checkObject(this, true);
+        pickupObj(objIndex);
+
         if(collisionOn == false) {
+            if(keyH.shiftPressed) {
+                speed = 8;
+            } else {
+                speed = 4;
+            }
             switch(direction) {
                 case "up":
                     worldY -= speed;
@@ -103,6 +116,32 @@ public class Player extends Entity{
                 spriteNum = 1;
             }
             spriteCounter = 0;
+        }
+    }
+
+    public void pickupObj(int i) {
+        if(i != 10) {
+            String objName = gp.obj[i].name;
+
+            switch(objName) {
+                case "key":
+                    keyNum = true;
+                    gp.obj[i] = null;
+                    break;
+                case "lock":
+                    if(keyNum) {
+                        gp.obj[i] = null;
+                        keyNum = false;
+                        gp.ui.displayText("Opened lock!");
+                    } else {
+                        gp.ui.displayText("Need key!");
+                    }
+                    break;
+                case "chest":
+                    gp.ui.gameEnd = true;
+                    break;
+
+            }
         }
     }
 
