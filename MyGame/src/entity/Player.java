@@ -25,7 +25,7 @@ public class Player extends Entity{
         screenX = gp.screenWidth / 2 - gp.tileSize / 2;
         screenY = gp.screenHeight / 2 - gp.tileSize / 2;
 
-        hitBox = new Rectangle(4 * gp.scale, 3 * gp.scale, 8 * gp.scale, 8 * gp.scale);
+        hitBox = new Rectangle(3 * gp.scale, 3 * gp.scale, 8 * gp.scale, 8 * gp.scale);
 
         initialAreaX = 4;
         initialAreaY = 3;
@@ -87,7 +87,7 @@ public class Player extends Entity{
 
         if(collisionOn == false) {
             if(keyH.shiftPressed) {
-                speed = 8;
+                speed = 6;
             } else {
                 speed = 4;
             }
@@ -139,6 +139,9 @@ public class Player extends Entity{
                     break;
                 case "chest":
                     gp.ui.gameEnd = true;
+                    break;
+                case "person":
+                    gp.ui.death = true;
                     break;
 
             }

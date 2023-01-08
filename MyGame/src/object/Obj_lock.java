@@ -11,7 +11,7 @@ public class Obj_lock extends SuperObject{
         collision = true;
 
         try{
-            image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("objects/lock.png"));
+            image1 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("objects/lock.png"));
         } catch(IOException e) {
             e.printStackTrace();
         }

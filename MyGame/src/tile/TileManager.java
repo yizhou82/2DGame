@@ -37,6 +37,7 @@ public class TileManager {
 
             tile[2] = new Tile();
             tile[2].image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("backgroundTiles/WoodenFloorWeb.png"));
+            tile[2].effect_slow = true;
 
             tile[3] = new Tile();
             tile[3].image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("backgroundTiles/Void.png"));

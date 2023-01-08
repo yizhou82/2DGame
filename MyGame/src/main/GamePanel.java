@@ -35,7 +35,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     public Collision cChecker;
     public Player player;
-    public SuperObject obj[] = new SuperObject[8];
+    public SuperObject obj[] = new SuperObject[9];
     public ObjectPlacer objPlacer = new ObjectPlacer(this);
     public UI ui = new UI(this);
 
@@ -95,6 +95,12 @@ public class GamePanel extends JPanel implements Runnable{
     public void update() {
 
         player.update();
+
+        for(int i = 0; i < obj.length; i++) {
+            if(obj[i] != null && obj[i].animate)
+                obj[i].update();
+        }
+
     }
     public void paintComponent(Graphics g) {
         super.paintComponent(g);

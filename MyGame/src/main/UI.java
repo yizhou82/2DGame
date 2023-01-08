@@ -15,6 +15,7 @@ public class UI {
     public String text = "";
     public boolean textOn = false;
     public boolean gameEnd = false;
+    public boolean death = false;
     public int counter = 0;
     public double time = 0.0;
     DecimalFormat df = new DecimalFormat("#0.00");
@@ -23,7 +24,7 @@ public class UI {
         this.font = new Font("font", Font.PLAIN, 35);
         this.fontEnd = new Font("fontEnd", Font.BOLD, 65);
         Obj_key key = new Obj_key();
-        keyImage = key.image;
+        keyImage = key.image1;
     }
 
     public void displayText(String text) {
@@ -34,19 +35,30 @@ public class UI {
     public void draw(Graphics2D g2) {
 
         if(gameEnd) {
-            String text = "CONGRATULATIONS!";
-            int textLength = (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-            int textHeight = (int) g2.getFontMetrics().getStringBounds(text, g2).getHeight();
+
             g2.setFont(fontEnd);
             g2.setColor(Color.yellow);
-            g2.drawString("CONGRATS!", gp.screenWidth/2 - textLength/2 - 130, gp.screenWidth/2 - textHeight - 10);
-            g2.drawString("YOU ESCAPED", gp.screenWidth/2 - textLength/2 - 170, gp.screenWidth/2 - textHeight + 50);
+            g2.drawString("CONGRATS!", gp.screenWidth/2 - 190, gp.screenWidth/2 - 25);
+            g2.drawString("YOU ESCAPED", gp.screenWidth/2 - 230, gp.screenWidth/2 + 35);
 
             g2.setFont(font);
             g2.setColor(Color.white);
             g2.drawString("Time taken: " + df.format(time) + "!", gp.tileSize * 5, gp.tileSize * 10);
 
             gp.gameThread = null;
+
+        } else if(death) {
+
+            g2.setFont(fontEnd);
+            g2.setColor(Color.red);
+            g2.drawString("YOU DIED!", gp.screenWidth/2 - 155, gp.screenWidth/2 - 15);
+
+            g2.setFont(font);
+            g2.setColor(Color.white);
+            g2.drawString("Don't get close to the people!", gp.tileSize * 4 - 6, gp.tileSize * 9);
+
+            gp.gameThread = null;
+
         } else {
             g2.setFont(font);
             g2.setColor(Color.cyan);
