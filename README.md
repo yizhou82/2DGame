@@ -8,7 +8,10 @@ Through my journey of developing this game, I encountered many challenges since 
 interacting with JFrame. A few challenges included adding player collisions and animating the player and objects in the game.
 
 Finding some guide on the internet, I was able to produce a small game which utilized the java abstract window toolkit and 
-many other utilities. In the future, I plan to update and further develop this game, such as making enemy entities move and follow the player. 
+many other utilities. To prevent myself from typing mindlessly, I coded as much as I can before looking for a solution online. This way, I can make sure I
+make the most out of my game developing experience, along with practicing my debugging skills.
+
+In the future, I plan to update and further develop this game, such as making enemy entities move and follow the player. 
 
 # Lore
 
