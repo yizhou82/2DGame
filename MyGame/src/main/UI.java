@@ -5,6 +5,10 @@ import java.awt.image.BufferedImage;
 import java.text.DecimalFormat;
 
 import object.Obj_key;
+
+/**
+ * The user interface of the game
+ */
 public class UI {
 
     GamePanel gp;
@@ -19,6 +23,11 @@ public class UI {
     public int counter = 0;
     public double time = 0.0;
     DecimalFormat df = new DecimalFormat("#0.00");
+
+    /**
+     * A constructor that creates an instance of UI
+     * @param gp the game panel
+     */
     public UI(GamePanel gp) {
         this.gp = gp;
         this.font = new Font("font", Font.PLAIN, 35);
@@ -27,15 +36,25 @@ public class UI {
         keyImage = key.image1;
     }
 
+    /**
+     * Sets the text of the UI
+     * @param text string of text to set to in the UI
+     */
     public void displayText(String text) {
         this.text = text;
         textOn = true;
     }
 
+    /**
+     * Draws the texts in a game
+     * @param g2 a graphics2D object used to draw the tiles
+     */
     public void draw(Graphics2D g2) {
+
 
         if(gameEnd) {
 
+            //Text displayed when the game ends
             g2.setFont(fontEnd);
             g2.setColor(Color.yellow);
             g2.drawString("CONGRATS!", gp.screenWidth/2 - 190, gp.screenWidth/2 - 25);
@@ -49,6 +68,7 @@ public class UI {
 
         } else if(death) {
 
+            //Text displayed when player dies
             g2.setFont(fontEnd);
             g2.setColor(Color.red);
             g2.drawString("YOU DIED!", gp.screenWidth/2 - 155, gp.screenWidth/2 - 15);
@@ -60,6 +80,8 @@ public class UI {
             gp.gameThread = null;
 
         } else {
+
+            //Text displayed on the screen when the game is running
             g2.setFont(font);
             g2.setColor(Color.cyan);
             g2.drawImage(keyImage, gp.tileSize/2, gp.tileSize/2, gp.tileSize, gp.tileSize, null);

@@ -2,6 +2,10 @@ package main;
 
 import javax.swing.JFrame;
 public class Main {
+
+    /**
+     *  Runs the 2D Horror game
+     */
     public static void main(String[] args) {
 
         JFrame window = new JFrame();

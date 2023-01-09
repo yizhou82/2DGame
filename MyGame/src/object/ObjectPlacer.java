@@ -1,10 +1,10 @@
 package object;
 
 import main.GamePanel;
-import object.Obj_chest;
-import object.Obj_key;
-import object.Obj_lock;
 
+/**
+ * Assigns different objects to the elements of the array
+ */
 public class ObjectPlacer {
     GamePanel gp;
 

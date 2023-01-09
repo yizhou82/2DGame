@@ -1,12 +1,12 @@
 package object;
 
-import main.GamePanel;
-
 import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Objects;
 
+/**
+ * An instance of a key object
+ */
 public class Obj_key extends SuperObject {
 
     public Obj_key() {
@@ -14,8 +14,8 @@ public class Obj_key extends SuperObject {
         this.animate = true;
 
         try{
-            image1 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("objects/key_1.png"));
-            image2 = ImageIO.read(getClass().getClassLoader().getResourceAsStream("objects/key_2.png"));
+            image1 = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("objects/key_1.png")));
+            image2 = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("objects/key_2.png")));
         } catch(IOException e) {
             e.printStackTrace();
         }
